@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/default_margin"
+    tools:context=".ui.details.DetailsFragment">
+
+    <ImageView
+        android:id="@+id/image_view_details_avatar"
+        android:layout_width="@dimen/avatar_details_size"
+        android:layout_height="@dimen/avatar_details_size"
+        android:layout_marginEnd="@dimen/default_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/text_view_details_username"
+        style="@style/mainText.26sp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/image_view_details_avatar"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Adam Smith" />
+
+    <TextView
+        android:id="@+id/text_view_details_url"
+        style="@style/secondaryText.16sp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/image_view_details_avatar"
+        app:layout_constraintTop_toBottomOf="@id/text_view_details_username"
+        tools:text="link kjh jkh jkh jkhjk hjh jh  khkjh jkhj hjk jh jkjk  hjh hl h  llk jl h jhghjghjghg" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
