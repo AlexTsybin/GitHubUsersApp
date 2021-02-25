@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.alextsy.githubusersapp.R
+import com.alextsy.githubusersapp.data.User
 import com.alextsy.githubusersapp.databinding.FragmentUsersBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class UsersFragment : Fragment(R.layout.fragment_users) {
+class UsersFragment : Fragment(R.layout.fragment_users), UsersAdapter.OnItemClickListener {
 
     private val viewModel by viewModels<UsersViewModel>()
 
@@ -21,7 +23,7 @@ class UsersFragment : Fragment(R.layout.fragment_users) {
 
         _binding = FragmentUsersBinding.bind(view)
 
-        val adapter = UsersAdapter()
+        val adapter = UsersAdapter(this)
 
         binding.apply {
             recyclerView.setHasFixedSize(true)
@@ -34,6 +36,11 @@ class UsersFragment : Fragment(R.layout.fragment_users) {
         viewModel.users.observe(viewLifecycleOwner) {
             adapter.submitData(viewLifecycleOwner.lifecycle, it)
         }
+    }
+
+    override fun onItemClick(user: User) {
+        val action = UsersFragmentDirections.actionUsersFragmentToDetailsFragment(user)
+        findNavController().navigate(action)
     }
 
     override fun onDestroyView() {

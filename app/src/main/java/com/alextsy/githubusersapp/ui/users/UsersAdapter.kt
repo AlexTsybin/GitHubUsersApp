@@ -10,7 +10,8 @@ import com.alextsy.githubusersapp.data.User
 import com.alextsy.githubusersapp.databinding.ItemGithubUserBinding
 import com.bumptech.glide.Glide
 
-class UsersAdapter : PagingDataAdapter<User, UsersAdapter.UserViewHolder>(USER_COMPARATOR) {
+class UsersAdapter(private val listener: OnItemClickListener) :
+    PagingDataAdapter<User, UsersAdapter.UserViewHolder>(USER_COMPARATOR) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val binding =
@@ -27,8 +28,21 @@ class UsersAdapter : PagingDataAdapter<User, UsersAdapter.UserViewHolder>(USER_C
         }
     }
 
-    class UserViewHolder(private val binding: ItemGithubUserBinding) :
+    inner class UserViewHolder(private val binding: ItemGithubUserBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            binding.root.setOnClickListener {
+                val position = bindingAdapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val item = getItem(position)
+                    if (item != null) {
+                        listener.onItemClick(item)
+                    }
+                }
+            }
+        }
+
         fun bind(user: User) {
             binding.apply {
                 Glide.with(itemView)
@@ -40,6 +54,10 @@ class UsersAdapter : PagingDataAdapter<User, UsersAdapter.UserViewHolder>(USER_C
                 textViewId.text = user.id.toString()
             }
         }
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(user: User)
     }
 
     companion object {

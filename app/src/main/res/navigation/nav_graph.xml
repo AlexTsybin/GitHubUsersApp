@@ -17,6 +17,10 @@
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.alextsy.githubusersapp.ui.details.DetailsFragment"
-        android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
+        android:label="User info"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="user"
+            app:argType="com.alextsy.githubusersapp.data.User" />
+    </fragment>
 </navigation>

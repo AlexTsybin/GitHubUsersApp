@@ -21,21 +21,49 @@
         style="@style/mainText.26sp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/default_margin"
         android:ellipsize="end"
         android:maxLines="1"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/image_view_details_avatar"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Adam Smith" />
+        tools:text="Adam Smith"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/text_view_location"
+        style="@style/secondaryText.16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/default_margin"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@id/image_view_details_avatar"
+        app:layout_constraintTop_toBottomOf="@id/text_view_details_username"
+        tools:text="San Francisco"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/text_view_details_url"
         style="@style/secondaryText.16sp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        android:textColor="@color/link_text_color"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_view_details_avatar"
+        tools:text="link kjh jkh jkh jkhjk hjh jh  khkjh jkhj hjk jh jkjk  hjh hl h  llk jl h jhghjghjghg"
+        tools:visibility="visible" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/image_view_details_avatar"
-        app:layout_constraintTop_toBottomOf="@id/text_view_details_username"
-        tools:text="link kjh jkh jkh jkhjk hjh jh  khkjh jkhj hjk jh jkjk  hjh hl h  llk jl h jhghjghjghg" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
