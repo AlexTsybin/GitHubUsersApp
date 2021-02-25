@@ -14,7 +14,6 @@ class GithubRepository @Inject constructor(private val githubApi: GithubApi) {
         Pager(
             config = PagingConfig(
                 pageSize = 30,
-                maxSize = 100,
                 enablePlaceholders = false
             ),
             pagingSourceFactory = { GithubPagingSource(githubApi) }

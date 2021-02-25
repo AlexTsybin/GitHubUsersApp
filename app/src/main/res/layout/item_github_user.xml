@@ -24,9 +24,18 @@
         android:ellipsize="end"
         android:maxLines="1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/text_view_id"
         app:layout_constraintStart_toEndOf="@id/image_view_list_avatar"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Adam Smith" />
+
+    <TextView
+        android:id="@+id/text_view_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="1435"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

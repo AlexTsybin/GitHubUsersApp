@@ -37,6 +37,7 @@ class UsersAdapter : PagingDataAdapter<User, UsersAdapter.UserViewHolder>(USER_C
                     .into(imageViewListAvatar)
 
                 textViewUserName.text = user.login
+                textViewId.text = user.id.toString()
             }
         }
     }
@@ -45,7 +46,7 @@ class UsersAdapter : PagingDataAdapter<User, UsersAdapter.UserViewHolder>(USER_C
         private val USER_COMPARATOR = object : DiffUtil.ItemCallback<User>() {
 
             override fun areItemsTheSame(oldItem: User, newItem: User) =
-                oldItem.node_id == newItem.node_id
+                oldItem.id == newItem.id
 
             override fun areContentsTheSame(oldItem: User, newItem: User) =
                 oldItem == newItem
