@@ -25,10 +25,13 @@ class UsersFragment : Fragment(R.layout.fragment_users) {
 
         binding.apply {
             recyclerView.setHasFixedSize(true)
-            recyclerView.adapter = adapter
+            recyclerView.adapter = adapter.withLoadStateHeaderAndFooter(
+                header = UsersLoadStateAdapter { adapter.retry() },
+                footer = UsersLoadStateAdapter { adapter.retry() }
+            )
         }
 
-        viewModel.users.observe(viewLifecycleOwner){
+        viewModel.users.observe(viewLifecycleOwner) {
             adapter.submitData(viewLifecycleOwner.lifecycle, it)
         }
     }
