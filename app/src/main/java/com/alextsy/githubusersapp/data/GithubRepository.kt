@@ -18,4 +18,7 @@ class GithubRepository @Inject constructor(private val githubApi: GithubApi) {
             ),
             pagingSourceFactory = { GithubPagingSource(githubApi) }
         ).liveData
+
+    suspend fun getUserInfo(username: String): User =
+        githubApi.getUser(username)
 }
