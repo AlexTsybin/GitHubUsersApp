@@ -33,7 +33,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
         viewModel.userLD.observe(viewLifecycleOwner) {
             binding.apply {
                 textViewLocation.text = it.location
-                textViewDetailsUsername.text = it.name
+                textViewDetailsName.text = it.name
             }
         }
 
@@ -62,7 +62,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
                         isFirstResource: Boolean
                     ): Boolean {
                         progressBar.isVisible = false
-                        textViewDetailsUsername.isVisible = true
+                        textViewDetailsName.isVisible = true
                         textViewLocation.isVisible = true
                         textViewDetailsUrl.isVisible = true
                         return false
