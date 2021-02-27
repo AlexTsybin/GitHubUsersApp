@@ -51,7 +51,6 @@ class UsersAdapter(private val listener: OnItemClickListener) :
                     .into(imageViewListAvatar)
 
                 textViewUserName.text = user.login
-                textViewId.text = user.id.toString()
             }
         }
     }

@@ -11,7 +11,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.alextsy.githubusersapp.R
 import com.alextsy.githubusersapp.databinding.FragmentDetailsBinding
-import com.alextsy.githubusersapp.ui.users.UsersViewModel
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
